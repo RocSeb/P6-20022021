@@ -1,95 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ficheye-index</title>
-    <link rel="stylesheet" href="css.style.css">
+    <title>FishEye</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="fisheye.png" />
 </head>
-
 <body>
-    <!-- header banner+nav @header-->
+
     <header>
-        <img href="#" alt="logo ficheye" />
-        <nav>
-            <a href="#">Passer au contenu</a>
-            <ul>
-                <li>#Portait</li>
-                <li>#Art</li>
-                <li>#Fashion</li>
-            </ul>
-        </nav>
+        <section class="header_container">
+            <h1><a href="home.html"> Fish<i class="fas fa-camera"></i>ye</a></h1>
+            <div class="filtres">
+                <span id="portrait">#Portrait</span>
+                <span id="art">#Art</span>
+                <span id="fashion">#Fashion</span>
+                <span id="architecture">#Architecture</span>
+                <span id="travel">#Travel</span>
+                <span id="sport">#Sport</span>
+                <span id="animals">#Animals</span>
+                <span id="events">#Events</span>
+            </div>
+            <h2>Nos photographes</h2>
+        </section>
     </header>
-    <!-- main @main -->
+    
+    <!-- Photographers -->
     <main>
-
-        <!-- Container H1 @title-->
-        <h1>Nos photographes</h1>
-        <!-- Container photographes @miniature -->
-        <div class="cards">
-            <div class="cards--pictureContainer">
-                <img src="#" alt="photo du portrait de {{ photographeName }} ">
-            </div>
-            <span class="photographe--name">Mimi Keel</span>
-            <span class="photographe--city">London, UK</span>
-            <span class="photographe--status">Freelance</span>
-            <ul class="photographe--tags">
-                <li>#Portrait</li>
-                <li>#Art</li>
-            </ul>
-        </div>
-        <div class="cards">
-            <div class="cards--pictureContainer">
-                <img src="#" alt="photo du portrait de {{ photographeName }} ">
-            </div>
-            <span class="photographe--name">Mimi Keel</span>
-            <span class="photographe--city">London, UK</span>
-            <span class="photographe--status">Freelance</span>
-            <ul class="photographe--tags">
-                <li>#Portrait</li>
-                <li>#Art</li>
-            </ul>
-        </div>
-        <div class="cards">
-            <div class="cards--pictureContainer">
-                <img src="#" alt="photo du portrait de {{ photographeName }} ">
-            </div>
-            <span class="photographe--name">Mimi Keel</span>
-            <span class="photographe--city">London, UK</span>
-            <span class="photographe--status">Freelance</span>
-            <ul class="photographe--tags">
-                <li>#Portrait</li>
-                <li>#Art</li>
-            </ul>
-        </div>
-        <div class="cards">
-            <div class="cards--pictureContainer">
-                <img src="#" alt="photo du portrait de {{ photographeName }} ">
-            </div>
-            <span class="photographe--name">Mimi Keel</span>
-            <span class="photographe--city">London, UK</span>
-            <span class="photographe--status">Freelance</span>
-            <ul class="photographe--tags">
-                <li>#Portrait</li>
-                <li>#Art</li>
-            </ul>
-        </div>
-        <div class="cards">
-            <div class="cards--pictureContainer">
-                <img src="#" alt="photo du portrait de {{ photographeName }} ">
-            </div>
-            <span class="photographe--name">Mimi Keel</span>
-            <span class="photographe--city">London, UK</span>
-            <span class="photographe--status">Freelance</span>
-            <ul class="photographe--tags">
-                <li>#Portrait</li>
-                <li>#Art</li>
-            </ul>
-        </div>
+        <div id="photographes_container"></div>
     </main>
-    <script src="js.app.js"></script>
-</body>
 
+    <script src="js/controller/displayData.js"></script>
+
+</body>
 </html>
