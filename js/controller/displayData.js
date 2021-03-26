@@ -1,8 +1,8 @@
 //Variables
-
+let isActiveClass;
 
 // Methode Fetch
-function getJson(){
+let getJson = () => {
   fetch('./../../data/data.json')    //permet de recuperer les ressources
     .then(response => response.json())
     .then(dataJson => { 
@@ -14,7 +14,7 @@ function getJson(){
 getJson();
 
 // Affiche les photographes par defaut 
-function displayByDefault(dataJson) {
+let displayByDefault = (dataJson) => {
   dataJson.photographers.forEach(photographe => {  
     const photographersDiv = document.getElementById('photographes_container');
     const div = document.createElement("div");   //methode pour creer un element html
@@ -38,12 +38,22 @@ function displayByDefault(dataJson) {
 };
 
 // Injecte le DOM dans la vue
-
-function displayPhotographers(dataJson){
+let displayPhotographers = () => {
   const photographersDiv = document.getElementById('photographes_container');
   photographersDiv.innerHTML = "";                        
 }; 
 
+// Ajoute la classe active sur les tags de filtrage au click
+let addActiveClass = () => {
+  const filterBtn = document.querySelectorAll('.filtres span');
+  filterBtn.forEach(filterTag => filterTag.addEventListener('click', () => {
+    if (!filterTag.classList.contains('active')) {
+       filterTag.classList.add('active');
+    } else {
+      filterTag.classList.remove('active');
+    };
+  }));
+};
+addActiveClass();
 
-
-
+//filtre
