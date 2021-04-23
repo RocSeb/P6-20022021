@@ -39,37 +39,10 @@ let displayByDefault = (dataJson) => {
 
 // Injecte le DOM dans la vue
 let displayPhotographers = () => {
- 
+
     const photographersDiv = document.getElementById('photographes_container');
-    photographersDiv.innerHTML = "";  
-                      
+    photographersDiv.innerHTML = "";
 }; 
-
-// Ajoute la classe active sur les tags de filtrage au click
-/*let addActiveClass = () => {
-  const filterBtn = document.querySelectorAll('.filtres span');
-  filterBtn.forEach(filterTag => filterTag.addEventListener('click', () => {
-    if (!filterTag.classList.contains('active')) {
-       filterTag.classList.add('active');
-    } else {
-      filterTag.classList.remove('active');
-    };
-  }));
-};
-addActiveClass();*/
-
-/*
-// Filtre par tags 
-function filterPhotographersIndividualTages(dataJson) {  
-  document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('individual-tags')) {
-      const photographersDiv = document.getElementById('photographes_container');
-      photographersDiv.innerHTML = "";                                      
-      filterElements(dataJson, event.target);
-    }
-  });
-};
-*/
 
 let filterActiveTag = () => {
  
@@ -83,16 +56,15 @@ let filterActiveTag = () => {
   const animalsX = document.querySelectorAll(".animals");
   const eventsX = document.querySelectorAll(".events");
   const all = document.querySelectorAll(".photographerContainer");
-  
-  
+
   tabs.forEach((tab) => {
-    const tabval = tab.getAttribute("data-tabs"); 
+    const tabval = tab.getAttribute("data-tabs");
     let isActiveButton = false;
     tab.addEventListener("click", () => {
         if (!tab.classList.contains('active')) {
           tab.classList.add('active');
           isActiveButton = true;
-          console.log(isActiveButton);     
+          console.log(isActiveButton);
        } else {
          tab.classList.remove('active');
          isActiveButton = false;
@@ -140,9 +112,9 @@ let filterActiveTag = () => {
         all.forEach(photographerContainer => {
             photographerContainer.style.display = "block";
         })
-      } console.log(tabval);     
-    }) 
+      }
+    })
   })
-} 
+}
 
 
