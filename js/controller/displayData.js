@@ -116,5 +116,3 @@ let filterActiveTag = () => {
     })
   })
 }
-
-
