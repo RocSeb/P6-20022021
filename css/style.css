@@ -105,6 +105,9 @@ h1 a{
     height: 100%; 
     object-fit: cover;
 }
+.tags {
+    margin-top: 10px;
+}
 
 .name, .city, .tags, .tagline, .price{
     text-align: center;

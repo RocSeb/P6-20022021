@@ -29,7 +29,7 @@ let displayByDefault = (dataJson) => {
       <p class="city">${photographe.city}, ${photographe.country}</p>
       <p class="tagline">${photographe.tagline}</p>
       <p class="price">${photographe.price}€/jour</p>
-      <div class="tags">${photographe.tags.map(tag => `<button id=${tag} class="tag individual-tags">#${tag}</button>`).join(" ")}</div>  
+      <div class="tags">${photographe.tags.map(tag => `<span id=${tag} class="tag individual-tags">#${tag}</span>`).join(" ")}</div>  
     </div>
     `  
     photographersDiv.appendChild(div);
@@ -58,61 +58,53 @@ let filterActiveTag = () => {
   const all = document.querySelectorAll(".photographerContainer");
 
   tabs.forEach((tab) => {
-    const tabval = tab.getAttribute("data-tabs");
-    let isActiveButton = false;
+    let tabval = tab.getAttribute("data-tabs");
     tab.addEventListener("click", () => {
         if (!tab.classList.contains('active')) {
           tab.classList.add('active');
-          isActiveButton = true;
-          console.log(isActiveButton);
-       } else {
+          all.forEach(photographerContainer => {        
+            photographerContainer.style.display = "none";
+              if (tabval == "portrait") {
+                portraits.forEach(portrait => {
+                  portrait.style.display = "block";
+                })
+              }else if (tabval == "art") {
+                arts.forEach(art => {
+                  art.style.display = "block";
+                })
+              }else if (tabval == "architecture") {
+                architectures.forEach(architecture => {
+                  architecture.style.display = "block";
+                })
+              }else if (tabval == "fashion") {
+                fashions.forEach(fashion => {
+                  fashion.style.display = "block";
+                })
+              }else if (tabval == "travel") {
+                travels.forEach(travel => {
+                  travel.style.display = "block";
+                })
+              }else if (tabval == "sport") {
+                sports.forEach(sport => {
+                  sport.style.display = "block";
+                })
+              }else if (tabval == "animals") {
+                animalsX.forEach(animals => {
+                  animals.style.display = "block";
+                })
+              }else if (tabval == "events") {
+                eventsX.forEach(events => {
+                  events.style.display = "block";
+                })
+              }
+              console.log(tabval);
+            })
+        } else {
          tab.classList.remove('active');
-         isActiveButton = false;
-         console.log(isActiveButton);
-       };
-
-      if (isActiveButton == true) {
-        all.forEach(photographerContainer => {
-          photographerContainer.style.display = "none";
+         all.forEach(photographerContainer => {
+          photographerContainer.style.display = "block";
         })
-        if (tabval == "portrait") {
-          portraits.forEach(portrait => {
-            portrait.style.display = "block";
-          })
-        }else if (tabval == "art") {
-          arts.forEach(art => {
-            art.style.display = "block";
-          })
-        }else if (tabval == "architecture") {
-          architectures.forEach(architecture => {
-            architecture.style.display = "block";
-          })
-        }else if (tabval == "fashion") {
-          fashions.forEach(fashion => {
-            fashion.style.display = "block";
-          })
-        }else if (tabval == "travel") {
-          travels.forEach(travel => {
-            travel.style.display = "block";
-          })
-        }else if (tabval == "sport") {
-          sports.forEach(sport => {
-            sport.style.display = "block";
-          })
-        }else if (tabval == "animals") {
-          animalsX.forEach(animals => {
-            animals.style.display = "block";
-          })
-        }else if (tabval == "events") {
-          eventsX.forEach(events => {
-            events.style.display = "block";
-          })
-        }
-      }else if (isActiveButton == false){
-        all.forEach(photographerContainer => {
-            photographerContainer.style.display = "block";
-        })
-      }
+      };
     })
   })
 }
