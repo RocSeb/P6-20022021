@@ -140,6 +140,28 @@ h1 a{
     padding: 0.2rem 0.4rem;
     color: #901C1C;
 }
+#scroll_container {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    width: 100vw;
+    height: 50px;
+    top: 0;
+}
+#scroll_up {
+    position: fixed;
+    display: none;
+    width: 200px;
+    height: 25px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color:#D3573C;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
 
 .photographerContainer a{
     text-decoration: none;
