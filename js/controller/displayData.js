@@ -132,13 +132,18 @@ mybutton.addEventListener("click", () => {
 
 
 
-/* j'ai une liste de tag en haut
-* chaque tag contiendra un attribut data-tabs
-* lorsque je clique sur un tag il affichera les profils qui contiendront le meme tag
-* lorsque je clique sur un nouveau tag, les profils qui auront ce nouveau tag s'ajouteront a ceux qui ont été affiché précédement
-* lorsque je clique une 2eme fois sur le tag actif, celui-ci se désactivera.
-* si aucun tag n'est sélectionné, ma page affichera tous les profils
-*/ 
+/****************************************
+ * liste de tag qui filtre les containers des profil de photographe.
+ * filtre-tag: lors du click le bouton change d'apparence ( rajouter une class "active")
+ *             lors du 2eme click sur le même bouton, il reviendra à son apparence initiale (supprimer la class active)
+ *            lorsque le bouton sera actif, il affichera les photographes ayant le meme tag que le bouton (rajouter un identifiant de comparaisons)
+ *            si 2 bouton ou + sont actifs les profiles afficher seront uniquement ceux qui contiennent 1 des tags filtres actifs dans l'identifiant de comparaison.
+ *            si tous les boutons sont désactiver, tous les profiles doivent être afficher
+ * ***************************************
+ *  créer un tableau qui stockera la liste des tags actifs
+ *  ???? Créer une class dans le container profil avec display:none en propriété qui enlevera les profils 
+ *                        qui ne contiendra pas l'identifiant commun avec le tag actif ?????
+ ****************************************/
 
 let getFilterTag = () => {
   tabs.forEach(val => {
@@ -148,6 +153,3 @@ let getFilterTag = () => {
   })
 }  
 
-/* Recuperer chaque data-tabs
-*  Recuperer chaque tag par photographe ( doit etre selectionnable 1 par 1)
-*/
