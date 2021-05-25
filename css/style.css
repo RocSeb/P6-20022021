@@ -80,9 +80,14 @@ h1 a{
 }
 
 .photographerContainer{
+    display: none;
     width: 30vw;
     margin: 0.5rem;
     padding: 0.3rem;
+}
+
+.show {
+    display: block;
 }
 
 .v-portrait{

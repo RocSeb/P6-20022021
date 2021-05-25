@@ -1,7 +1,6 @@
 //Variables
 let isActiveClass = "true";
 const tabs = document.querySelectorAll(".filtres span");
-const all = document.querySelectorAll(".photographerContainer");
 let tagPerso;
 // Methode Fetch
 let getJson = () => {
@@ -12,7 +11,8 @@ let getJson = () => {
         displayPhotographers(dataJson);  
         displayByDefault(dataJson); 
         scroll();
-        getFilterTag();
+        showAll();
+        filterActiveTag();
     })
 };
 getJson();
@@ -47,71 +47,38 @@ let displayPhotographers = () => {
     const photographersDiv = document.getElementById('photographes_container');
     photographersDiv.innerHTML = "";
 }; 
-/*
+
+let showAll = () => {
+  const all = document.querySelectorAll(".photographerContainer");
+  all.forEach((profile) => {
+    profile.classList.add('show')
+  })
+};
+
 let filterActiveTag = () => {
  
-  const tabs = document.querySelectorAll(".filtres span");
-  const portraits = document.querySelectorAll(".portrait");
-  const arts = document.querySelectorAll(".art");
-  const architectures = document.querySelectorAll(".architecture");
-  const fashions = document.querySelectorAll(".fashion");
-  const travels = document.querySelectorAll(".travel");
-  const sports = document.querySelectorAll(".sport");
-  const animalsX = document.querySelectorAll(".animals");
-  const eventsX = document.querySelectorAll(".events");
+  const tags = document.querySelectorAll(".filtres span");
   const all = document.querySelectorAll(".photographerContainer");
 
-  tabs.forEach((tab) => {
-    let tabval = tab.getAttribute("data-tabs");
-    tab.addEventListener("click", () => {
-        if (!tab.classList.contains('active')) {
-          tab.classList.add('active');
-          all.forEach(photographerContainer => {        
-            photographerContainer.style.display = "none";
-              if (tabval == "portrait") {
-                portraits.forEach(portrait => {
-                  portrait.style.display = "block";
-                })
-              }else if (tabval == "art") {
-                arts.forEach(art => {
-                  art.style.display = "block";
-                })
-              }else if (tabval == "architecture") {
-                architectures.forEach(architecture => {
-                  architecture.style.display = "block";
-                })
-              }else if (tabval == "fashion") {
-                fashions.forEach(fashion => {
-                  fashion.style.display = "block";
-                })
-              }else if (tabval == "travel") {
-                travels.forEach(travel => {
-                  travel.style.display = "block";
-                })
-              }else if (tabval == "sport") {
-                sports.forEach(sport => {
-                  sport.style.display = "block";
-                })
-              }else if (tabval == "animals") {
-                animalsX.forEach(animals => {
-                  animals.style.display = "block";
-                })
-              }else if (tabval == "events") {
-                eventsX.forEach(events => {
-                  events.style.display = "block";
-                })
-              }
-            })
-        } else {
-         tab.classList.remove('active');
-         all.forEach(photographerContainer => {
-          photographerContainer.style.display = "block";
+  tags.forEach((tag) => {
+    var tagval = tag.getAttribute("data-tabs");
+    tag.addEventListener("click", () => {
+      if (!tag.classList.contains('active')) {
+        tag.classList.add('active');
+        all.forEach((profile) => { 
+          if (profile.classList.contains(tagval)) {
+            profile.classList.add('show')
+          } else {
+            profile.classList.remove('show')
+          }
         })
-      };
+      } else {
+          tag.classList.remove('active')
+          showAll();
+      }
     })
   })
 }
-*/
 
 const mybutton = document.getElementById("scroll_up");
 window.onscroll = function() {scroll()};
@@ -127,29 +94,3 @@ let scroll = () =>  {
 mybutton.addEventListener("click", () => {
   document.documentElement.scrollTop = 0;
 });
-
-
-
-
-
-/****************************************
- * liste de tag qui filtre les containers des profil de photographe.
- * filtre-tag: lors du click le bouton change d'apparence ( rajouter une class "active")
- *             lors du 2eme click sur le même bouton, il reviendra à son apparence initiale (supprimer la class active)
- *            lorsque le bouton sera actif, il affichera les photographes ayant le meme tag que le bouton (rajouter un identifiant de comparaisons)
- *            si 2 bouton ou + sont actifs les profiles afficher seront uniquement ceux qui contiennent 1 des tags filtres actifs dans l'identifiant de comparaison.
- *            si tous les boutons sont désactiver, tous les profiles doivent être afficher
- * ***************************************
- *  créer un tableau qui stockera la liste des tags actifs
- *  ???? Créer une class dans le container profil avec display:none en propriété qui enlevera les profils 
- *                        qui ne contiendra pas l'identifiant commun avec le tag actif ?????
- ****************************************/
-
-let getFilterTag = () => {
-  tabs.forEach(val => {
-    val.addEventListener("click", () => {
-      tagPerso = val;
-    })
-  })
-}  
-
