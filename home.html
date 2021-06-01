@@ -12,13 +12,13 @@
 </head>
 <body>
 
-    <header>
-        <section class="header_container">
+    <header role="banniere et filtre">
+        <div class="header_container">
             <h1><a href="home.html"> Fish<i class="fas fa-camera"></i>ye</a></h1>
             <div id="scroll_container">
                 <button id="scroll_up">Passer au contenu</button>
             </div>
-            <div class="filtres">
+            <div class="filtres" aria-label="filtrer les profils de photographe">
                 <span data-tabs="portrait">#Portrait</span>
                 <span data-tabs="art" >#Art</span>
                 <span data-tabs="architecture" >#Architecture</span>
@@ -30,11 +30,11 @@
             </div>
         
             <h2>Nos photographes</h2>
-        </section>
+        </div>
     </header>
     
     <!-- Photographers -->
-    <main>
+    <main aria-label="Partie principal des profils de photographes" role="Choisir le photograpphe souhaité">
         <div id="photographes_container"></div>
     </main>
 

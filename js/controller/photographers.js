@@ -33,7 +33,8 @@ function photographerProfil(JsonData){
     const domDiv = document.getElementById('photographer-container');
     const newDiv = document.createElement('div');
     const photographerPrice = element.price;
-    const profilTemplate = `
+    const profilTemplate = 
+    `
       <section aria-label="Photographer Profil" class="profil-container">
         <h2>${element.name}</h2>
         <p>${element.city}, ${element.country}</p>
@@ -308,7 +309,7 @@ closeLightBox()
 // Formulaire //
 
 const form = document.querySelector('.form-container form');
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", (e, key) => {
     e.preventDefault();
     const prenom = document.getElementById('prenom');
     const nom = document.getElementById('nom');
@@ -342,7 +343,9 @@ function showModal(element){
     const nameTemplate = `${element.name}`
     nameOfThePhotographe.innerHTML = nameTemplate;
   })
+  
 }
+  
 
 // Fermeture du formulaire avec X //
 
@@ -350,6 +353,13 @@ document.getElementById('close-button').addEventListener('click', () => {
     const formModal = document.getElementById('form-container');
     formModal.style.display = "none";
 })
+
+document.addEventListener('keydown', (key) => {
+  if(key.code == "Escape"){
+    const formModal = document.getElementById('form-container');
+    formModal.style.display = "none";
+  }
+}) 
 
 // Validite des inputes //
 
